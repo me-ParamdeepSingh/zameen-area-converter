@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#4F46E5">
+  <meta name="description" content="State-Aware Indian Land-Area Converter & Plot Calculator. Convert Bigha, Kanal, Marla, Gaj, Biswa, Acre and calculate plot area & price.">
+  <title>Zameen Converter — Bigha, Kanal, Marla, Gaj Calculator</title>
+
+  <!-- Google Fonts: Outfit, Inter, Noto Sans Devanagari & Gurmukhi -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Gurmukhi:wght@400;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- Top Navigation Bar -->
+    <header class="top-bar">
+      <div class="brand-wrapper">
+        <div class="brand-logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1 data-i18n="appTitle">Zameen Converter</h1>
+          <span class="app-sub" data-i18n="appSubtitle">Land & Plot Calculator</span>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <!-- Language Switcher Chips -->
+        <div class="lang-selector" role="group" aria-label="Language selection">
+          <button class="lang-chip active" data-lang="en">EN</button>
+          <button class="lang-chip" data-lang="hi">HI</button>
+          <button class="lang-chip" data-lang="pa">PA</button>
+        </div>
+
+        <!-- History Button -->
+        <button id="btn-history" class="icon-btn" title="Conversion History" aria-label="Conversion History">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </button>
+
+        <!-- Favorites Button -->
+        <button id="btn-favorites" class="icon-btn" title="Saved Favorites" aria-label="Saved Favorites">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+          </svg>
+        </button>
+
+        <!-- Settings Button -->
+        <button id="btn-settings" class="icon-btn" title="Settings & Theme" aria-label="Settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- State & Region Selector Bar (Crucial Core Control) -->
+    <div class="state-selector-bar">
+      <div class="state-row">
+        <div class="state-badge-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 2a8 8 0 00-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 00-8-8z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <span data-i18n="selectState">State / Region</span>
+        </div>
+        <div class="state-select-wrapper">
+          <select id="state-dropdown" class="state-dropdown" aria-label="Select State">
+            <!-- Dynamically populated -->
+          </select>
+          <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- State Variant Selector (e.g. Pucca vs Kachha Bigha, Standard vs Old Marla) -->
+      <div id="variant-selector-row" class="variant-row" style="display: none;">
+        <span class="variant-label" data-i18n="variantLabel">System / Variant:</span>
+        <div id="variant-chips-container" class="variant-chips">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Trust Cue & Verification Status -->
+      <div class="trust-cue-banner">
+        <div id="trust-badge" class="trust-badge verified">
+          <!-- Populated dynamically -->
+        </div>
+        <span id="trust-source-text">Official Revenue Standard</span>
+        <button id="btn-disclaimer" class="disclaimer-btn">Disclaimer</button>
+      </div>
+    </div>
+
+    <!-- Main Content Area with 4 Tab Panes -->
+    <main class="main-content">
+
+      <!-- ===================================================================
+           TAB 1: SMART CONVERTER (HOME SCREEN)
+           =================================================================== -->
+      <section id="tab-converter" class="tab-pane active" aria-labelledby="nav-btn-converter">
+        
+        <!-- Hero Converter Input Card -->
+        <div class="converter-card">
+          <div class="converter-header">
+            <div class="unit-select-container">
+              <label for="from-unit-dropdown" class="unit-label" data-i18n="fromUnit">From Unit:</label>
+              <select id="from-unit-dropdown" class="unit-dropdown" aria-label="From Unit">
+                <!-- Populated dynamically -->
+              </select>
+            </div>
+
+            <div class="converter-quick-actions">
+              <button id="btn-share" class="icon-btn" title="Share Deal Summary" aria-label="Share Conversion">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8m-4-6l-4-4m0 0L8 6m4-4v12"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Big Number Input Field -->
+          <div class="hero-input-group">
+            <input 
+              type="number" 
+              id="hero-number-input" 
+              class="hero-number-input" 
+              placeholder="1" 
+              value="1" 
+              step="any"
+              min="0"
+              inputmode="decimal"
+              aria-label="Area Value"
+              autofocus
+            />
+            <button id="clear-input-btn" class="clear-input-btn" title="Clear input" aria-label="Clear">✕</button>
+          </div>
+
+          <!-- Preset Value Chips -->
+          <div class="preset-chips-row">
+            <span class="preset-label" data-i18n="quickPresets">Presets:</span>
+            <button class="preset-chip" data-val="1">1</button>
+            <button class="preset-chip" data-val="2">2</button>
+            <button class="preset-chip" data-val="5">5</button>
+            <button class="preset-chip" data-val="10">10</button>
+            <button class="preset-chip" data-val="50">50</button>
+            <button class="preset-chip" data-val="100">100</button>
+            <button class="preset-chip" data-val="200">200</button>
+            <button class="preset-chip" data-val="500">500</button>
+          </div>
+        </div>
+
+        <!-- Converted Results Section -->
+        <div class="results-section-header">
+          <div class="results-title">
+            <span data-i18n="allUnits">All Units</span>
+          </div>
+
+          <!-- Filter category chips -->
+          <div class="results-filter-chips">
+            <button class="filter-chip active" data-cat="all" data-i18n="categoryAll">All</button>
+            <button class="filter-chip" data-cat="regional" data-i18n="categoryRegional">Regional</button>
+            <button class="filter-chip" data-cat="standard" data-i18n="categoryStandard">Standard</button>
+            <button class="filter-chip" data-cat="metric" data-i18n="categoryMetric">Metric</button>
+          </div>
+        </div>
+
+        <!-- Converted Results Cards Grid -->
+        <div id="results-list-container" class="results-list">
+          <!-- Populated in real-time -->
+        </div>
+
+      </section>
+
+      <!-- ===================================================================
+           TAB 2: PLOT AREA CALCULATOR (RECTANGLE, TRIANGLE, IRREGULAR 4-SIDED)
+           =================================================================== -->
+      <section id="tab-plot" class="tab-pane" aria-labelledby="nav-btn-plot">
+        <div class="plot-card">
+          <!-- Shape Selection Tabs -->
+          <div class="shape-selector-group">
+            <button class="shape-tab active" data-shape="rectangle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="6" width="18" height="12" rx="1"/>
+              </svg>
+              <span data-i18n="rectangle">Rectangle</span>
+            </button>
+            <button class="shape-tab" data-shape="triangle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 4 4 20 20 20"/>
+              </svg>
+              <span data-i18n="triangle">Triangle</span>
+            </button>
+            <button class="shape-tab" data-shape="irregular4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="4 8 18 4 21 18 6 20"/>
+                <line x1="4" y1="8" x2="21" y2="18" stroke-dasharray="2,2"/>
+              </svg>
+              <span data-i18n="irregular4">4-Sided Irregular</span>
+            </button>
+          </div>
+
+          <!-- Rough Sketch to PDF Naksha Banner CTA -->
+          <div class="naksha-banner-cta" id="banner-open-naksha">
+            <div style="display: flex; align-items: center; gap: 10px; min-width: 0;">
+              <div style="width: 34px; height: 34px; background: #059669; color: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0;">📐</div>
+              <div style="min-width: 0;">
+                <div style="font-weight: 700; font-size: 13px; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" data-i18n="nakshaTitle">Rough Sketch to CAD Naksha PDF</div>
+                <div style="font-size: 11px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Enter side lengths & download official PDF map</div>
+              </div>
+            </div>
+            <button type="button" class="primary-btn" id="btn-cta-naksha" style="padding: 6px 12px; font-size: 11px; background: #059669; flex: none; border-radius: var(--radius-full); box-shadow: none;">Create PDF →</button>
+          </div>
+
+          <!-- SVG Visual Geometry Diagram -->
+          <div class="plot-preview-container">
+            <div id="plot-svg-container" style="width: 100%; display: flex; justify-content: center;">
+              <!-- Realtime SVG dynamically drawn -->
+            </div>
+          </div>
+
+          <!-- Linear Dimension Unit Selector -->
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-3); gap: 8px; flex-wrap: wrap;">
+            <label for="dim-unit-select" class="input-field-label" data-i18n="dimensionUnit">Measurement Unit:</label>
+            <select id="dim-unit-select" class="state-dropdown" style="width: auto; max-width: 100%; min-width: 130px; padding: 6px 30px 6px 12px;">
+              <option value="feet">Feet (फ़ुट / ਫੁੱਟ)</option>
+              <option value="yards">Gaj / Yards (गज़ / ਗਜ਼)</option>
+              <option value="metres">Metres (मीटर / ਮੀਟਰ)</option>
+              <option value="karam">Karam 5.5ft (करम / ਕਰਮ)</option>
+            </select>
+          </div>
+
+          <!-- Dynamic Form Inputs -->
+          <div id="plot-inputs-grid" class="inputs-grid">
+            <!-- Injected by PlotCalculatorUI -->
+          </div>
+
+          <!-- Calculated Output Box -->
+          <div class="plot-summary-box">
+            <div class="plot-summary-header" data-i18n="plotAreaResult">Calculated Area</div>
+            <div id="plot-result-display" class="plot-summary-val">0 sq ft</div>
+            <div id="plot-breakdown-list" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px;">
+              <!-- Unit chips -->
+            </div>
+
+            <div class="action-row">
+              <button id="btn-open-naksha" class="primary-btn" style="background: linear-gradient(135deg, #059669 0%, #047857 100%);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                <span data-i18n="generateNakshaPdf">CAD Naksha & PDF</span>
+              </button>
+              <button id="btn-send-price" class="secondary-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                <span data-i18n="sendToPrice">Land Price</span>
+              </button>
+              <button id="btn-send-converter" class="secondary-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16l-4-4m0 0l4-4m-4 4h18"/></svg>
+                <span data-i18n="sendToConverter">In Converter</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           TAB 3: PLOT PRICE CALCULATOR & STAMP DUTY BREAKDOWN
+           =================================================================== -->
+      <section id="tab-price" class="tab-pane" aria-labelledby="nav-btn-price">
+        <div class="plot-card">
+          <!-- Direct vs Reverse Mode -->
+          <div class="price-mode-switch">
+            <button id="price-mode-direct" class="mode-btn active" data-i18n="priceDirect">Total Price (Area × Rate)</button>
+            <button id="price-mode-reverse" class="mode-btn" data-i18n="priceReverse">Reverse Rate Compare</button>
+          </div>
+
+          <!-- Direct Mode Inputs -->
+          <div id="price-direct-inputs" class="inputs-grid">
+            <div class="input-field-wrapper">
+              <label for="price-area-input" class="input-field-label">Plot Area</label>
+              <input type="number" step="any" id="price-area-input" class="standard-input" value="200" placeholder="e.g. 200">
+            </div>
+            <div class="input-field-wrapper">
+              <label for="price-unit-select" class="input-field-label">Area Unit</label>
+              <select id="price-unit-select" class="state-dropdown" style="padding: 10px 32px 10px 12px;">
+                <!-- Populated dynamically -->
+              </select>
+            </div>
+            <div class="input-field-wrapper" style="grid-column: span 2;">
+              <label for="price-rate-input" class="input-field-label" data-i18n="ratePerUnit">Rate per Unit (₹)</label>
+              <input type="number" step="any" id="price-rate-input" class="standard-input" value="15000" placeholder="e.g. 15000">
+            </div>
+          </div>
+
+          <!-- Reverse Mode Inputs -->
+          <div id="price-reverse-inputs" class="inputs-grid" style="display: none;">
+            <div class="input-field-wrapper" style="grid-column: span 2;">
+              <label for="price-rev-total" class="input-field-label" data-i18n="totalPrice">Total Deal Value (₹)</label>
+              <input type="number" step="any" id="price-rev-total" class="standard-input" value="3000000" placeholder="e.g. 30,00,000">
+            </div>
+            <div class="input-field-wrapper">
+              <label for="price-rev-area-input" class="input-field-label">Area</label>
+              <input type="number" step="any" id="price-rev-area-input" class="standard-input" value="200" placeholder="e.g. 200">
+            </div>
+            <div class="input-field-wrapper">
+              <label for="price-rev-unit-select" class="input-field-label">Area Unit</label>
+              <select id="price-rev-unit-select" class="state-dropdown" style="padding: 10px 32px 10px 12px;">
+                <!-- Populated dynamically -->
+              </select>
+            </div>
+          </div>
+
+          <!-- Total Deal Price Hero Display -->
+          <div class="price-hero-result">
+            <div class="price-hero-label" data-i18n="calculatedPrice">Total Deal Amount</div>
+            <div id="price-hero-amount" class="price-hero-amount">₹ 30,00,000</div>
+            <div id="price-in-words" class="price-in-words">(Thirty Lakh Rupees)</div>
+          </div>
+
+          <!-- Reverse Rates Comparison Grid -->
+          <div id="price-reverse-results" style="display: none; margin-top: var(--space-4);">
+            <div style="font-size: var(--text-sm); font-weight: 700; margin-bottom: 8px;" data-i18n="rateComparison">Equivalent Rate across Units:</div>
+            <div id="price-rates-grid" style="display: flex; flex-direction: column; gap: 8px;">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+
+          <!-- Stamp Duty & Registry Fee Estimator -->
+          <div id="duty-calculator-box" class="duty-calculator-box">
+            <div class="duty-header">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              <span data-i18n="stampDutyTitle">Estimated Stamp Duty & Govt Fees</span>
+            </div>
+            <div class="duty-grid">
+              <div class="input-field-wrapper">
+                <label for="duty-stamp-pct" class="input-field-label" data-i18n="stampDutyPercent">Stamp Duty (%)</label>
+                <input type="number" step="0.5" id="duty-stamp-pct" class="standard-input" value="6">
+              </div>
+              <div class="input-field-wrapper">
+                <label for="duty-reg-pct" class="input-field-label" data-i18n="regFeePercent">Registration (%)</label>
+                <input type="number" step="0.5" id="duty-reg-pct" class="standard-input" value="1">
+              </div>
+            </div>
+
+            <div style="margin-top: 10px; font-size: var(--text-xs); color: var(--text-secondary); display: flex; justify-content: space-between;">
+              <span>Stamp Duty:</span>
+              <strong id="duty-stamp-val">₹ 1,80,000</strong>
+            </div>
+            <div style="margin-top: 4px; font-size: var(--text-xs); color: var(--text-secondary); display: flex; justify-content: space-between;">
+              <span>Registration Fee:</span>
+              <strong id="duty-reg-val">₹ 30,000</strong>
+            </div>
+
+            <div class="duty-total-row">
+              <span data-i18n="totalWithDuty">Total Outlay (Land + Duty):</span>
+              <span id="duty-grand-total" style="color: var(--primary);">₹ 32,10,000</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           TAB 4: REFERENCE & CHEAT-SHEET
+           =================================================================== -->
+      <section id="tab-reference" class="tab-pane" aria-labelledby="nav-btn-reference">
+        <!-- Key Formulas -->
+        <div class="ref-table-card">
+          <div class="ref-table-title" data-i18n="refFormulas">Key Conversion Formulas</div>
+          <div id="ref-formulas-container" style="padding: var(--space-3);">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Multipliers Table -->
+        <div class="ref-table-card">
+          <div class="ref-table-title" data-i18n="refMultipliers">Standard Conversion Chart</div>
+          <table class="ref-table">
+            <thead>
+              <tr>
+                <th>Unit</th>
+                <th>Sq Ft</th>
+                <th>Gaj</th>
+                <th>Acre</th>
+                <th>Sq Metre</th>
+              </tr>
+            </thead>
+            <tbody id="ref-multipliers-body">
+              <!-- Populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Revenue Glossary -->
+        <div class="ref-table-card">
+          <div class="ref-table-title" data-i18n="refGlossary">Revenue Terms & Patwari Glossary</div>
+          <div id="ref-glossary-container" style="padding: var(--space-3);">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+      </section>
+
+      <!-- In-Content Sponsored Card (Native, scrolls cleanly with content, never blocks navigation dock) -->
+      <aside class="in-content-ad-card" aria-label="Sponsored Ad">
+        <div class="ad-card-left">
+          <span class="ad-badge" data-i18n="adLabel">AD</span>
+          <span class="ad-text" data-i18n="adNotice">Google AdMob Sponsored Slot • Fast Offline Utility</span>
+        </div>
+        <span class="ad-link">zameenconverter.app</span>
+      </aside>
+
+    </main>
+
+    <!-- Bottom Navigation Dock (Clean 4-Tab Navigation Only) -->
+    <nav class="bottom-nav-dock" aria-label="Main Navigation">
+      <div class="bottom-nav-items">
+        <button id="nav-btn-converter" class="nav-tab-btn active" data-tab="converter">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="4" y="2" width="16" height="20" rx="2"/>
+            <line x1="8" y1="6" x2="16" y2="6"/>
+            <line x1="16" y1="14" x2="16" y2="18"/>
+            <path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/>
+          </svg>
+          <span data-i18n="navConverter">Converter</span>
+        </button>
+
+        <button id="nav-btn-plot" class="nav-tab-btn" data-tab="plot">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+          </svg>
+          <span data-i18n="navPlot">Plot Area</span>
+        </button>
+
+        <button id="nav-btn-price" class="nav-tab-btn" data-tab="price">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+          </svg>
+          <span data-i18n="navPrice">Price & Deal</span>
+        </button>
+
+        <button id="nav-btn-reference" class="nav-tab-btn" data-tab="reference">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+          </svg>
+          <span data-i18n="navReference">Reference</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ===================================================================
+         MODALS & DRAWERS
+         =================================================================== -->
+    
+    <!-- History Modal -->
+    <div id="history-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="history-modal-title">
+      <div class="modal-sheet">
+        <div class="modal-header">
+          <h2 id="history-modal-title" class="modal-title" data-i18n="history">Recent Conversions</h2>
+          <button class="icon-btn close-modal-btn" aria-label="Close">✕</button>
+        </div>
+        <div id="history-modal-body" class="modal-body">
+          <!-- Populated dynamically -->
+        </div>
+        <div class="modal-footer">
+          <button id="btn-clear-history" class="secondary-btn" style="color: var(--danger);" data-i18n="clearHistory">Clear History</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Favorites Modal -->
+    <div id="favorites-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="fav-modal-title">
+      <div class="modal-sheet">
+        <div class="modal-header">
+          <h2 id="fav-modal-title" class="modal-title" data-i18n="favorites">Saved Favorites</h2>
+          <button class="icon-btn close-modal-btn" aria-label="Close">✕</button>
+        </div>
+        <div id="favorites-modal-body" class="modal-body">
+          <!-- Populated dynamically -->
+        </div>
+        <div class="modal-footer">
+          <button class="secondary-btn close-modal-btn" data-i18n="close">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share Deal Summary Modal -->
+    <div id="share-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="share-modal-title">
+      <div class="modal-sheet">
+        <div class="modal-header">
+          <h2 id="share-modal-title" class="modal-title" data-i18n="shareDeal">Share Land Conversion</h2>
+          <button class="icon-btn close-modal-btn" aria-label="Close">✕</button>
+        </div>
+        <div class="modal-body">
+          <div id="share-preview-content">
+            <!-- Share summary card -->
+          </div>
+          <label for="share-text-area" class="input-field-label" style="margin-bottom: 4px; display: block;">Text Summary:</label>
+          <textarea id="share-text-area" class="standard-input" rows="6" style="width: 100%; font-family: monospace; font-size: 11px;" readonly></textarea>
+        </div>
+        <div class="modal-footer">
+          <button id="btn-copy-share" class="primary-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span>Copy Text to Clipboard</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Legal Disclaimer Notice Modal (Spec Section 6.6) -->
+    <div id="disclaimer-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="disclaimer-title">
+      <div class="modal-sheet">
+        <div class="modal-header">
+          <h2 id="disclaimer-title" class="modal-title" data-i18n="disclaimerTitle">Official Revenue Notice</h2>
+          <button class="icon-btn close-modal-btn" aria-label="Close">✕</button>
+        </div>
+        <div class="modal-body">
+          <div style="background: var(--warning-bg); border: 1px solid var(--warning); border-radius: var(--radius-sm); padding: var(--space-3); margin-bottom: var(--space-4); color: var(--text-primary); font-size: var(--text-sm);">
+            ⚠️ <strong>Legal & Financial Caution:</strong>
+            <p style="margin-top: 6px; line-height: 1.5;" data-i18n="disclaimerFull">
+              Values follow commonly accepted state revenue department standards. Local tehsil, settlement, and patwari customs may have slight district-level variations. Always confirm with your local patwari / revenue office before entering into legal or financial agreements.
+            </p>
+          </div>
+          <div style="font-size: var(--text-xs); color: var(--text-secondary); line-height: 1.6;">
+            <p><strong>Statutory Verification Guide:</strong></p>
+            <ul style="padding-left: 18px; margin-top: 6px;">
+              <li><strong>Punjab / Haryana:</strong> Refer to the official Jamabandi portal (plrs.org.in / jamabandi.nic.in).</li>
+              <li><strong>Uttar Pradesh:</strong> Refer to UP Board of Revenue Bhulekh (upbhulekh.gov.in).</li>
+              <li><strong>Rajasthan:</strong> Refer to Apna Khata (apnakhata.rajasthan.gov.in).</li>
+              <li><strong>Bihar:</strong> Refer to Biharbhumi (biharbhumi.bihar.gov.in).</li>
+              <li><strong>Gujarat:</strong> Refer to AnyRoR (anyror.gujarat.gov.in).</li>
+              <li><strong>Maharashtra:</strong> Refer to Mahabhulekh (bhulekh.mahabhumi.gov.in).</li>
+            </ul>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="primary-btn close-modal-btn" data-i18n="close">I Understand</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plot Naksha & PDF Blueprint Generator Modal -->
+    <div id="naksha-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="naksha-modal-title">
+      <div class="modal-sheet" style="max-height: 94vh; max-width: 620px;">
+        <div class="modal-header">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 20px;">📐</span>
+            <h2 id="naksha-modal-title" class="modal-title" data-i18n="nakshaTitle">Plot Naksha Map & PDF</h2>
+          </div>
+          <button class="icon-btn close-modal-btn" aria-label="Close">✕</button>
+        </div>
+
+        <div class="modal-body" style="padding: 12px 16px; overflow-y: auto;">
+          <!-- Quick Paste / Rough Sketch Parser Card -->
+          <div class="naksha-rough-box">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; flex-wrap: wrap; gap: 4px;">
+              <label for="naksha-rough-input" class="input-field-label" data-i18n="roughNotesLabel">Quick Paste Rough Sketch / Notes:</label>
+              <button id="btn-naksha-sample" class="pill-badge-btn" type="button" data-i18n="loadSample">Load Photo Example (35.11 × 56.3)</button>
+            </div>
+            <div style="display: flex; gap: 6px;">
+              <input type="text" id="naksha-rough-input" class="standard-input" placeholder="e.g. Road 35.11, Gali 56.3, Back 38, Right 64" style="flex: 1; padding: 8px 10px; font-size: 13px;" />
+              <button id="btn-naksha-autofill" class="primary-btn" type="button" style="padding: 8px 14px; font-size: 12px; flex: none;" data-i18n="autoFill">Auto-Fill</button>
+            </div>
+          </div>
+
+          <!-- 4 Sides Input Grid -->
+          <div style="margin-top: 12px;">
+            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;">
+              <span>Plot Side Measurements (ਮਾਪ)</span>
+              <span style="font-size: 11px; color: var(--text-muted); font-weight: 500;">Format: Ft & In / 35.11</span>
+            </div>
+
+            <div class="inputs-grid" style="gap: 8px; margin-bottom: 8px;">
+              <!-- Side A: Top / Front / Road -->
+              <div class="naksha-side-card">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 11px; font-weight: 700; color: var(--primary);">Side A (Top / Front)</span>
+                  <input type="text" id="naksha-top-label" class="mini-label-input" value="ROAD" placeholder="Facing" />
+                </div>
+                <div class="naksha-ft-in-row">
+                  <input type="number" id="naksha-top-ft" class="standard-input" value="35" min="0" placeholder="Ft" />
+                  <span>ft</span>
+                  <input type="number" id="naksha-top-in" class="standard-input" value="11" min="0" max="11" placeholder="In" />
+                  <span>in</span>
+                </div>
+              </div>
+
+              <!-- Side B: Right -->
+              <div class="naksha-side-card">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 11px; font-weight: 700; color: var(--text-secondary);">Side B (Right)</span>
+                  <input type="text" id="naksha-right-label" class="mini-label-input" value="SIDE" placeholder="Facing" />
+                </div>
+                <div class="naksha-ft-in-row">
+                  <input type="number" id="naksha-right-ft" class="standard-input" value="64" min="0" placeholder="Ft" />
+                  <span>ft</span>
+                  <input type="number" id="naksha-right-in" class="standard-input" value="0" min="0" max="11" placeholder="In" />
+                  <span>in</span>
+                </div>
+              </div>
+
+              <!-- Side C: Bottom / Back -->
+              <div class="naksha-side-card">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 11px; font-weight: 700; color: var(--text-secondary);">Side C (Bottom / Back)</span>
+                  <input type="text" id="naksha-bot-label" class="mini-label-input" value="BACK" placeholder="Facing" />
+                </div>
+                <div class="naksha-ft-in-row">
+                  <input type="number" id="naksha-bot-ft" class="standard-input" value="38" min="0" placeholder="Ft" />
+                  <span>ft</span>
+                  <input type="number" id="naksha-bot-in" class="standard-input" value="0" min="0" max="11" placeholder="In" />
+                  <span>in</span>
+                </div>
+              </div>
+
+              <!-- Side D: Left / Gali -->
+              <div class="naksha-side-card">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 11px; font-weight: 700; color: var(--primary);">Side D (Left / Gali)</span>
+                  <input type="text" id="naksha-left-label" class="mini-label-input" value="GALI" placeholder="Facing" />
+                </div>
+                <div class="naksha-ft-in-row">
+                  <input type="number" id="naksha-left-ft" class="standard-input" value="56" min="0" placeholder="Ft" />
+                  <span>ft</span>
+                  <input type="number" id="naksha-left-in" class="standard-input" value="3" min="0" max="11" placeholder="In" />
+                  <span>in</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Optional Diagonal / Triangulation -->
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; background: var(--surface-secondary); padding: 6px 10px; border-radius: var(--radius-sm); border: 1px dashed var(--border);">
+              <span style="font-size: 11px; font-weight: 600; color: var(--text-muted);">Optional Diagonal (ਵਿਕਰਣ / ਤਿਰਛੀ ਦੂਰੀ):</span>
+              <div class="naksha-ft-in-row" style="width: 140px;">
+                <input type="number" id="naksha-diag-ft" class="standard-input" placeholder="Auto" style="padding: 4px 6px; font-size: 12px;" />
+                <span>ft</span>
+                <input type="number" id="naksha-diag-in" class="standard-input" placeholder="0" style="padding: 4px 6px; font-size: 12px;" />
+                <span>in</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metadata for PDF Header (Optional) -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px;">
+            <div class="input-field-wrapper">
+              <label for="naksha-owner-input" class="input-field-label" data-i18n="plotOwnerLabel">Owner / Plot Name:</label>
+              <input type="text" id="naksha-owner-input" class="standard-input" placeholder="e.g. Farm Ludhiana / Plot 244 Gaj" style="padding: 7px 10px; font-size: 12px;" />
+            </div>
+            <div class="input-field-wrapper">
+              <label for="naksha-loc-input" class="input-field-label" data-i18n="plotLocationLabel">Location / Khasra No:</label>
+              <input type="text" id="naksha-loc-input" class="standard-input" placeholder="e.g. Model Town / Khasra 42" style="padding: 7px 10px; font-size: 12px;" />
+            </div>
+          </div>
+
+          <!-- Live CAD Preview Container -->
+          <div style="margin-top: 12px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <span style="font-size: 12px; font-weight: 700; color: var(--text-primary);">CAD Naksha Blueprint Preview</span>
+              <span style="font-size: 11px; color: var(--accent-emerald); font-weight: 700;">● Realtime Vector Render</span>
+            </div>
+            <div id="naksha-svg-container" class="naksha-preview-card">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer" style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button id="btn-download-pdf" class="primary-btn" type="button" style="background: linear-gradient(135deg, #059669 0%, #047857 100%);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span data-i18n="downloadPdf">Download Official PDF</span>
+          </button>
+          <button id="btn-share-pdf" class="secondary-btn" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            <span data-i18n="sharePdf">Share PDF (WhatsApp)</span>
+          </button>
+          <button class="secondary-btn close-modal-btn" type="button" data-i18n="close">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+      <div class="modal-sheet">
+        <div class="modal-header">
+          <h2 id="settings-title" class="modal-title" data-i18n="settings">Settings</h2>
+          <button class="icon-btn close-modal-btn" aria-label="Close">✕</button>
+        </div>
+        <div class="modal-body">
+          <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <span style="font-weight: 600; font-size: var(--text-sm);" data-i18n="theme">Theme</span>
+              <select id="theme-select" class="state-dropdown" style="width: 140px;">
+                <option value="dark" data-i18n="themeDark">Dark Mode</option>
+                <option value="light" data-i18n="themeLight">Light Mode</option>
+                <option value="system" data-i18n="themeSystem">System Default</option>
+              </select>
+            </div>
+
+            <div style="padding-top: var(--space-3); border-top: 1px solid var(--border);">
+              <h3 style="font-size: var(--text-sm); font-weight: 700; margin-bottom: 4px;" data-i18n="aboutApp">About Zameen Converter</h3>
+              <p style="font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5;">
+                A fast, fully offline, state-aware land area calculator for Indian real estate buyers, sellers, farmers, and revenue professionals.
+              </p>
+              <div style="font-size: var(--text-xs); color: var(--primary); font-weight: 600; margin-top: 6px;" data-i18n="version">
+                Version 1.0.0 (Production Release)
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="secondary-btn close-modal-btn" data-i18n="close">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  </div>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>

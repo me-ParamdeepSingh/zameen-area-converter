@@ -1,0 +1,1026 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-10-11",
+  "universalUnits": [
+    {
+      "id": "sqft",
+      "name": {
+        "en": "Square Feet",
+        "hi": "वर्ग फ़ुट",
+        "pa": "ਵਰਗ ਫੁੱਟ"
+      },
+      "symbol": "sq ft",
+      "sqft": 1.0,
+      "category": "standard",
+      "source": "Standard Imperial / SI Definition",
+      "verified": true,
+      "description": "Base imperial unit of area (1 ft × 1 ft)"
+    },
+    {
+      "id": "gaj",
+      "name": {
+        "en": "Gaj (Square Yard)",
+        "hi": "गज़ (वर्ग गज़)",
+        "pa": "ਗਜ਼ (ਵਰਗ ਗਜ਼)"
+      },
+      "symbol": "gaj / sq yd",
+      "sqft": 9.0,
+      "category": "standard",
+      "source": "1 sq yard = 3 ft × 3 ft = 9 sq ft",
+      "verified": true,
+      "description": "Widely used for residential plots across India"
+    },
+    {
+      "id": "sqm",
+      "name": {
+        "en": "Square Metre",
+        "hi": "वर्ग मीटर",
+        "pa": "ਵਰਗ ਮੀਟਰ"
+      },
+      "symbol": "sq m",
+      "sqft": 10.7639104,
+      "category": "metric",
+      "source": "SI Unit: (1 / 0.3048)^2 sq ft",
+      "verified": true,
+      "description": "Standard International SI metric unit"
+    },
+    {
+      "id": "acre",
+      "name": {
+        "en": "Acre (Killa)",
+        "hi": "एकड़ (किल्ला)",
+        "pa": "ਏਕੜ (ਕਿੱਲਾ)"
+      },
+      "symbol": "acre",
+      "sqft": 43560.0,
+      "category": "standard",
+      "source": "Standard Land Revenue Definition (4,840 sq yd)",
+      "verified": true,
+      "description": "Standard agricultural unit throughout India"
+    },
+    {
+      "id": "hectare",
+      "name": {
+        "en": "Hectare",
+        "hi": "हेक्टेयर",
+        "pa": "ਹੈਕਟੇਅਰ"
+      },
+      "symbol": "ha",
+      "sqft": 107639.104,
+      "category": "metric",
+      "source": "SI Unit: 10,000 sq m = 107,639.104 sq ft",
+      "verified": true,
+      "description": "Official metric revenue record unit in India"
+    },
+    {
+      "id": "sqin",
+      "name": {
+        "en": "Square Inch",
+        "hi": "वर्ग इंच",
+        "pa": "ਵਰਗ ਇੰਚ"
+      },
+      "symbol": "sq in",
+      "sqft": 0.0069444444,
+      "category": "standard",
+      "source": "1 / 144 sq ft",
+      "verified": true,
+      "description": "Sub-unit of square feet"
+    }
+  ],
+  "regions": [
+    {
+      "id": "punjab",
+      "name": {
+        "en": "Punjab",
+        "hi": "पंजाब",
+        "pa": "ਪੰਜਾਬ"
+      },
+      "defaultUnit": "kanal",
+      "defaultVariant": "standard",
+      "variants": [
+        {
+          "id": "standard",
+          "name": {
+            "en": "Standard (Karam = 5.5 ft)",
+            "hi": "मानक (करम = 5.5 फ़ुट)",
+            "pa": "ਮਿਆਰੀ (ਕਰਮ = 5.5 ਫੁੱਟ)"
+          },
+          "note": "1 Marla = 9 Sarsahi = 272.25 sq ft. Most common across Punjab revenue records."
+        },
+        {
+          "id": "old_settlement",
+          "name": {
+            "en": "Old Settlement (Karam = 5.0 ft)",
+            "hi": "पुरानी बंदोबस्त (करम = 5.0 फ़ुट)",
+            "pa": "ਪੁਰਾਣਾ ਬੰਦੋਬਸਤ (ਕਰਮ = 5.0 ਫੁੱਟ)"
+          },
+          "note": "1 Marla = 225 sq ft. Used in historical pre-consolidation revenue records."
+        }
+      ],
+      "units": [
+        {
+          "id": "kanal",
+          "variant": "standard",
+          "name": { "en": "Kanal", "hi": "कनाल", "pa": "ਕਨਾਲ" },
+          "symbol": "kanal",
+          "sqft": 5445.0,
+          "category": "regional",
+          "source": "Punjab Land Records Manual (20 Marla)",
+          "verified": true,
+          "description": "1 Kanal = 20 Marla = 605 sq yd = 5,445 sq ft (8 Kanal = 1 Acre)"
+        },
+        {
+          "id": "marla",
+          "variant": "standard",
+          "name": { "en": "Marla (Standard)", "hi": "मरला (मानक)", "pa": "ਮਰਲਾ (ਮਿਆਰੀ)" },
+          "symbol": "marla",
+          "sqft": 272.25,
+          "category": "regional",
+          "source": "Punjab Land Records Manual (9 Sarsahi = 30.25 sq yd)",
+          "verified": true,
+          "description": "1 Marla = 272.25 sq ft = 30.25 sq yd = 9 Sarsahi"
+        },
+        {
+          "id": "marla_old",
+          "variant": "old_settlement",
+          "name": { "en": "Marla (Old Settlement)", "hi": "मरला (पुरानी बंदोबस्त)", "pa": "ਮਰਲਾ (ਪੁਰਾਣਾ)" },
+          "symbol": "marla (old)",
+          "sqft": 225.0,
+          "category": "regional",
+          "source": "Punjab Historical Settlement Manual (25 sq yd)",
+          "verified": true,
+          "description": "1 Marla = 225 sq ft = 25 sq yd (5 ft karam)"
+        },
+        {
+          "id": "kanal_old",
+          "variant": "old_settlement",
+          "name": { "en": "Kanal (Old Settlement)", "hi": "कनाल (पुरानी बंदोबस्त)", "pa": "ਕਨਾਲ (ਪੁਰਾਣਾ)" },
+          "symbol": "kanal (old)",
+          "sqft": 4500.0,
+          "category": "regional",
+          "source": "Punjab Historical Settlement Manual (20 Old Marla)",
+          "verified": true,
+          "description": "1 Kanal = 20 Old Marla = 4,500 sq ft"
+        },
+        {
+          "id": "sarsahi",
+          "variant": "standard",
+          "name": { "en": "Sarsahi", "hi": "सरसाही", "pa": "ਸਰਸਾਹੀ" },
+          "symbol": "sarsahi",
+          "sqft": 30.25,
+          "category": "regional",
+          "source": "Punjab Land Records Manual (1/9 Marla)",
+          "verified": true,
+          "description": "1 Sarsahi = 1 Karam × 1 Karam (5.5 ft × 5.5 ft) = 30.25 sq ft"
+        },
+        {
+          "id": "killa",
+          "variant": "standard",
+          "name": { "en": "Killa / Ghumaon", "hi": "किल्ला / घुमाओं", "pa": "ਕਿੱਲਾ / ਘੁਮਾਓਂ" },
+          "symbol": "killa",
+          "sqft": 43560.0,
+          "category": "regional",
+          "source": "Punjab Land Records Manual (8 Kanal)",
+          "verified": true,
+          "description": "1 Killa = 8 Kanal = 160 Marla = 43,560 sq ft (Equal to 1 Acre)"
+        },
+        {
+          "id": "bigha_punjab",
+          "variant": "standard",
+          "name": { "en": "Bigha (Malwa/Princely)", "hi": "बीघा (मालवा/रियासती)", "pa": "ਬੀਘਾ (ਮਾਲਵਾ/ਰਿਆਸਤੀ)" },
+          "symbol": "bigha",
+          "sqft": 21780.0,
+          "category": "regional",
+          "source": "PEPSU Revenue Settlement (4 Kanal = 0.5 Acre)",
+          "verified": true,
+          "description": "1 Bigha = 4 Kanal = 80 Marla = 21,780 sq ft (2.5 Bigha = 1 Killa)"
+        },
+        {
+          "id": "biswa_punjab",
+          "variant": "standard",
+          "name": { "en": "Biswa (Malwa)", "hi": "बिस्वा (मालवा)", "pa": "ਬਿਸਵਾ (ਮਾਲਵਾ)" },
+          "symbol": "biswa",
+          "sqft": 1089.0,
+          "category": "regional",
+          "source": "PEPSU Revenue Settlement (1/20 Bigha)",
+          "verified": true,
+          "description": "1 Biswa = 1,089 sq ft = 4 Marla"
+        },
+        {
+          "id": "biswansi_punjab",
+          "variant": "standard",
+          "name": { "en": "Biswansi", "hi": "बिस्वांसी", "pa": "ਬਿਸਵਾਂਸੀ" },
+          "symbol": "biswansi",
+          "sqft": 54.45,
+          "category": "regional",
+          "source": "PEPSU Revenue Manual (1/20 Biswa)",
+          "verified": true,
+          "description": "1 Biswansi = 54.45 sq ft = 1/20 Biswa"
+        },
+        {
+          "id": "murabba",
+          "variant": "standard",
+          "name": { "en": "Murabba", "hi": "मुरब्बा", "pa": "ਮੁਰੱਬਾ" },
+          "symbol": "murabba",
+          "sqft": 1089000.0,
+          "category": "regional",
+          "source": "Punjab Consolidation Manual (25 Killas)",
+          "verified": true,
+          "description": "1 Murabba = 25 Killas/Acres = 1,089,000 sq ft"
+        }
+      ]
+    },
+    {
+      "id": "haryana",
+      "name": {
+        "en": "Haryana",
+        "hi": "हरियाणा",
+        "pa": "ਹਰਿਆਣਾ"
+      },
+      "defaultUnit": "kanal",
+      "defaultVariant": "standard",
+      "variants": [
+        {
+          "id": "standard",
+          "name": {
+            "en": "Standard Canal/Marla (Karam = 5.5 ft)",
+            "hi": "मानक कनाल/मरला (करम = 5.5 फ़ुट)",
+            "pa": "ਮਿਆਰੀ ਕਨਾਲ/ਮਰਲਾ (ਕਰਮ = 5.5 ਫੁੱਟ)"
+          },
+          "note": "Standard in GT Road & Central/North Haryana revenue records (Jamabandi)"
+        },
+        {
+          "id": "bigha_biswa",
+          "name": {
+            "en": "Bigha-Biswa System (South/Western Haryana)",
+            "hi": "बीघा-बिस्वा प्रणाली (दक्षिण/पश्चिम हरियाणा)",
+            "pa": "ਬੀਘਾ-ਬਿਸਵਾ ਪ੍ਰਣਾਲੀ"
+          },
+          "note": "Used in Gurugram, Faridabad, Rewari, Mahendragarh revenue records"
+        }
+      ],
+      "units": [
+        {
+          "id": "kanal",
+          "variant": "standard",
+          "name": { "en": "Kanal", "hi": "कनाल", "pa": "ਕਨਾਲ" },
+          "symbol": "kanal",
+          "sqft": 5445.0,
+          "category": "regional",
+          "source": "Haryana Land Records Manual (Jamabandi)",
+          "verified": true,
+          "description": "1 Kanal = 20 Marla = 5,445 sq ft"
+        },
+        {
+          "id": "marla",
+          "variant": "standard",
+          "name": { "en": "Marla", "hi": "मरला", "pa": "ਮਰਲਾ" },
+          "symbol": "marla",
+          "sqft": 272.25,
+          "category": "regional",
+          "source": "Haryana Revenue Department",
+          "verified": true,
+          "description": "1 Marla = 272.25 sq ft = 9 Sarsahi"
+        },
+        {
+          "id": "sarsahi",
+          "variant": "standard",
+          "name": { "en": "Sarsahi", "hi": "सरसाही", "pa": "ਸਰਸਾਹੀ" },
+          "symbol": "sarsahi",
+          "sqft": 30.25,
+          "category": "regional",
+          "source": "Haryana Revenue Department",
+          "verified": true,
+          "description": "1 Sarsahi = 30.25 sq ft"
+        },
+        {
+          "id": "killa_haryana",
+          "variant": "standard",
+          "name": { "en": "Killa", "hi": "किल्ला", "pa": "ਕਿੱਲਾ" },
+          "symbol": "killa",
+          "sqft": 43560.0,
+          "category": "regional",
+          "source": "Haryana Jamabandi (8 Kanal)",
+          "verified": true,
+          "description": "1 Killa = 8 Kanal = 43,560 sq ft (1 Acre)"
+        },
+        {
+          "id": "bigha_haryana",
+          "variant": "bigha_biswa",
+          "name": { "en": "Bigha (Haryana Pucca)", "hi": "बीघा (हरियाणा पक्का)", "pa": "ਬੀਘਾ (ਹਰਿਆਣਾ ਪੱਕਾ)" },
+          "symbol": "bigha",
+          "sqft": 27225.0,
+          "category": "regional",
+          "source": "Haryana Revenue (Gurugram/Faridabad Revenue Records)",
+          "verified": true,
+          "description": "1 Bigha = 20 Biswa = 3,025 sq yd = 27,225 sq ft (1.6 Bigha = 1 Acre)"
+        },
+        {
+          "id": "biswa_haryana",
+          "variant": "bigha_biswa",
+          "name": { "en": "Biswa (Haryana)", "hi": "बिस्वा (हरियाणा)", "pa": "ਬਿਸਵਾ (ਹਰਿਆਣਾ)" },
+          "symbol": "biswa",
+          "sqft": 1361.25,
+          "category": "regional",
+          "source": "Haryana Revenue Records (1/20 Bigha)",
+          "verified": true,
+          "description": "1 Biswa = 1,361.25 sq ft = 151.25 sq yd"
+        },
+        {
+          "id": "biswansi_haryana",
+          "variant": "bigha_biswa",
+          "name": { "en": "Biswansi", "hi": "बिस्वांसी", "pa": "ਬਿਸਵਾਂਸੀ" },
+          "symbol": "biswansi",
+          "sqft": 68.0625,
+          "category": "regional",
+          "source": "Haryana Revenue Records (1/20 Biswa)",
+          "verified": true,
+          "description": "1 Biswansi = 68.0625 sq ft"
+        },
+        {
+          "id": "murabba_haryana",
+          "variant": "standard",
+          "name": { "en": "Murabba", "hi": "मुरब्बा", "pa": "ਮੁਰੱਬਾ" },
+          "symbol": "murabba",
+          "sqft": 1089000.0,
+          "category": "regional",
+          "source": "Haryana Jamabandi (25 Killas)",
+          "verified": true,
+          "description": "1 Murabba = 25 Killas = 1,089,000 sq ft"
+        }
+      ]
+    },
+    {
+      "id": "up",
+      "name": {
+        "en": "Uttar Pradesh",
+        "hi": "उत्तर प्रदेश",
+        "pa": "ਉੱਤਰ ਪ੍ਰਦੇਸ਼"
+      },
+      "defaultUnit": "bigha_pucca",
+      "defaultVariant": "pucca",
+      "variants": [
+        {
+          "id": "pucca",
+          "name": {
+            "en": "Pucca Bigha (Standard/Official)",
+            "hi": "पक्का बीघा (मानक/सरकारी)",
+            "pa": "ਪੱਕਾ ਬੀਘਾ (ਸਰਕਾਰੀ)"
+          },
+          "note": "Standard across UP Revenue Department (UP Bhulekh). 1 Bigha = 27,225 sq ft (3,025 sq yd)."
+        },
+        {
+          "id": "kachha",
+          "name": {
+            "en": "Kachha Bigha (Western UP / Local)",
+            "hi": "कच्चा बीघा (पश्चिमी उप्र/स्थानीय)",
+            "pa": "ਕੱਚਾ ਬੀਘਾ (ਸਥਾਨਕ)"
+          },
+          "note": "1 Kachha Bigha = 1/3 of Pucca Bigha = 9,075 sq ft (1,008.33 sq yd). Used in Meerut, Moradabad, etc."
+        }
+      ],
+      "units": [
+        {
+          "id": "bigha_pucca",
+          "variant": "pucca",
+          "name": { "en": "Pucca Bigha", "hi": "पक्का बीघा", "pa": "ਪੱਕਾ ਬੀਘਾ" },
+          "symbol": "pucca bigha",
+          "sqft": 27225.0,
+          "category": "regional",
+          "source": "UP Board of Revenue (Bhulekh) / UP Zamindari Abolition Act",
+          "verified": true,
+          "description": "1 Pucca Bigha = 55 yd × 55 yd = 3,025 sq yd = 27,225 sq ft = 2,529.28 sq m"
+        },
+        {
+          "id": "biswa_pucca",
+          "variant": "pucca",
+          "name": { "en": "Pucca Biswa", "hi": "पक्का बिस्वा", "pa": "ਪੱਕਾ ਬਿਸਵਾ" },
+          "symbol": "biswa",
+          "sqft": 1361.25,
+          "category": "regional",
+          "source": "UP Board of Revenue (1/20 Pucca Bigha)",
+          "verified": true,
+          "description": "1 Biswa = 1/20 Bigha = 1,361.25 sq ft = 151.25 sq yd"
+        },
+        {
+          "id": "biswansi_pucca",
+          "variant": "pucca",
+          "name": { "en": "Biswansi", "hi": "बिस्वांसी", "pa": "ਬਿਸਵਾਂਸੀ" },
+          "symbol": "biswansi",
+          "sqft": 68.0625,
+          "category": "regional",
+          "source": "UP Board of Revenue (1/20 Biswa)",
+          "verified": true,
+          "description": "1 Biswansi = 1/20 Biswa = 68.0625 sq ft"
+        },
+        {
+          "id": "kansi",
+          "variant": "pucca",
+          "name": { "en": "Kachwansi / Unwansi", "hi": "कचवांसी / उनवांसी", "pa": "ਕਚਵਾਂਸੀ" },
+          "symbol": "kachwansi",
+          "sqft": 3.403125,
+          "category": "regional",
+          "source": "UP Land Records Manual (1/20 Biswansi)",
+          "verified": true,
+          "description": "1 Kachwansi = 1/20 Biswansi = 3.403 sq ft"
+        },
+        {
+          "id": "bigha_kachha",
+          "variant": "kachha",
+          "name": { "en": "Kachha Bigha", "hi": "कच्चा बीघा", "pa": "ਕੱਚਾ ਬੀਘਾ" },
+          "symbol": "kachha bigha",
+          "sqft": 9075.0,
+          "category": "regional",
+          "source": "UP Land Records Manual (Western UP)",
+          "verified": true,
+          "description": "1 Kachha Bigha = 1/3 Pucca Bigha = 9,075 sq ft = 1,008.33 sq yd = 843.09 sq m"
+        },
+        {
+          "id": "biswa_kachha",
+          "variant": "kachha",
+          "name": { "en": "Kachha Biswa", "hi": "कच्चा बिस्वा", "pa": "ਕੱਚਾ ਬਿਸਵਾ" },
+          "symbol": "kachha biswa",
+          "sqft": 453.75,
+          "category": "regional",
+          "source": "UP Land Records Manual (1/20 Kachha Bigha)",
+          "verified": true,
+          "description": "1 Kachha Biswa = 453.75 sq ft = 50.42 sq yd"
+        },
+        {
+          "id": "decimal_up",
+          "variant": "pucca",
+          "name": { "en": "Decimal / Dismil", "hi": "डिसमिल", "pa": "ਡਿਸਮਿਲ" },
+          "symbol": "decimal",
+          "sqft": 435.6,
+          "category": "regional",
+          "source": "UP Revenue Modern Records (1/100 Acre)",
+          "verified": true,
+          "description": "1 Decimal = 1/100 Acre = 435.6 sq ft"
+        }
+      ]
+    },
+    {
+      "id": "rajasthan",
+      "name": {
+        "en": "Rajasthan",
+        "hi": "राजस्थान",
+        "pa": "ਰਾਜਸਥਾਨ"
+      },
+      "defaultUnit": "bigha_pucca_raj",
+      "defaultVariant": "pucca",
+      "variants": [
+        {
+          "id": "pucca",
+          "name": {
+            "en": "Pucca Bigha (165 ft × 165 ft)",
+            "hi": "पक्का बीघा (165 फ़ुट × 165 फ़ुट)",
+            "pa": "ਪੱਕਾ ਬੀਘਾ (165 ਫੁੱਟ × 165 ਫੁੱਟ)"
+          },
+          "note": "Standard across Rajasthan Revenue Board (Apna Khata). 1 Bigha = 27,225 sq ft = 3,025 sq yd."
+        },
+        {
+          "id": "kachha",
+          "name": {
+            "en": "Kachha Bigha (132 ft × 132 ft)",
+            "hi": "कच्चा बीघा (132 फ़ुट × 132 फ़ुट)",
+            "pa": "ਕੱਚਾ ਬੀਘਾ (132 ਫੁੱਟ × 132 ਫੁੱਟ)"
+          },
+          "note": "Prevalent in Bikaner, Jodhpur and parts of Western Rajasthan. 1 Bigha = 17,424 sq ft (0.4 Acre)."
+        }
+      ],
+      "units": [
+        {
+          "id": "bigha_pucca_raj",
+          "variant": "pucca",
+          "name": { "en": "Pucca Bigha", "hi": "पक्का बीघा", "pa": "ਪੱਕਾ ਬੀਘਾ" },
+          "symbol": "pucca bigha",
+          "sqft": 27225.0,
+          "category": "regional",
+          "source": "Rajasthan Land Revenue Act 1956 (Apna Khata)",
+          "verified": true,
+          "description": "1 Pucca Bigha = 165 ft × 165 ft = 3,025 sq yd = 27,225 sq ft"
+        },
+        {
+          "id": "biswa_pucca_raj",
+          "variant": "pucca",
+          "name": { "en": "Pucca Biswa", "hi": "पक्का बिस्वा", "pa": "ਪੱਕਾ ਬਿਸਵਾ" },
+          "symbol": "biswa",
+          "sqft": 1361.25,
+          "category": "regional",
+          "source": "Rajasthan Board of Revenue, Ajmer (1/20 Bigha)",
+          "verified": true,
+          "description": "1 Biswa = 1,361.25 sq ft = 151.25 sq yd"
+        },
+        {
+          "id": "biswansi_raj",
+          "variant": "pucca",
+          "name": { "en": "Biswansi", "hi": "बिस्वांसी", "pa": "ਬਿਸਵਾਂਸੀ" },
+          "symbol": "biswansi",
+          "sqft": 68.0625,
+          "category": "regional",
+          "source": "Rajasthan Board of Revenue (1/20 Biswa)",
+          "verified": true,
+          "description": "1 Biswansi = 68.0625 sq ft"
+        },
+        {
+          "id": "bigha_kachha_raj",
+          "variant": "kachha",
+          "name": { "en": "Kachha Bigha", "hi": "कच्चा बीघा", "pa": "ਕੱਚਾ ਬੀਘਾ" },
+          "symbol": "kachha bigha",
+          "sqft": 17424.0,
+          "category": "regional",
+          "source": "Rajasthan Settlement Manual (132 ft × 132 ft = 0.40 Acre)",
+          "verified": true,
+          "description": "1 Kachha Bigha = 1,936 sq yd = 17,424 sq ft (2.5 Bigha = 1 Acre)"
+        },
+        {
+          "id": "biswa_kachha_raj",
+          "variant": "kachha",
+          "name": { "en": "Kachha Biswa", "hi": "कच्चा बिस्वा", "pa": "ਕੱਚਾ ਬਿਸਵਾ" },
+          "symbol": "kachha biswa",
+          "sqft": 871.2,
+          "category": "regional",
+          "source": "Rajasthan Settlement Manual (1/20 Kachha Bigha)",
+          "verified": true,
+          "description": "1 Kachha Biswa = 871.2 sq ft = 96.8 sq yd"
+        }
+      ]
+    },
+    {
+      "id": "bihar",
+      "name": {
+        "en": "Bihar",
+        "hi": "बिहार",
+        "pa": "ਬਿਹਾਰ"
+      },
+      "defaultUnit": "bigha_bihar",
+      "defaultVariant": "standard",
+      "variants": [
+        {
+          "id": "standard",
+          "name": {
+            "en": "Standard Revenue (Laggi = 6.875 ft)",
+            "hi": "मानक राजस्व (लग्गी = 6.875 फ़ुट)",
+            "pa": "ਮਿਆਰੀ ਮਾਲੀਆ"
+          },
+          "note": "Standard official measurement by Bihar Land Records (Biharbhumi). 1 Bigha = 27,225 sq ft."
+        },
+        {
+          "id": "customary_laggi_6",
+          "name": {
+            "en": "Local Customary (Laggi = 6.0 ft / 4 Hath)",
+            "hi": "स्थानीय प्रथागत (लग्गी = 6.0 फ़ुट)",
+            "pa": "ਸਥਾਨਕ ਲੱਗੀ (6 ਫੁੱਟ)"
+          },
+          "note": "Traditional survey custom in parts of Central/Eastern Bihar. 1 Bigha = 19,044 sq ft."
+        }
+      ],
+      "units": [
+        {
+          "id": "bigha_bihar",
+          "variant": "standard",
+          "name": { "en": "Bigha (Standard)", "hi": "बीघा (मानक)", "pa": "ਬੀਘਾ" },
+          "symbol": "bigha",
+          "sqft": 27225.0,
+          "category": "regional",
+          "source": "Bihar Directorate of Land Records & Survey (Biharbhumi)",
+          "verified": true,
+          "description": "1 Bigha = 20 Kattha = 27,225 sq ft = 3,025 sq yd"
+        },
+        {
+          "id": "kattha_bihar",
+          "variant": "standard",
+          "name": { "en": "Kattha / Katha", "hi": "कट्ठा", "pa": "ਕੱਠਾ" },
+          "symbol": "kattha",
+          "sqft": 1361.25,
+          "category": "regional",
+          "source": "Bihar Land Reforms Act (1/20 Bigha)",
+          "verified": true,
+          "description": "1 Kattha = 20 Dhur = 1,361.25 sq ft = 151.25 sq yd"
+        },
+        {
+          "id": "dhur_bihar",
+          "variant": "standard",
+          "name": { "en": "Dhur", "hi": "धूर", "pa": "ਧੂਰ" },
+          "symbol": "dhur",
+          "sqft": 68.0625,
+          "category": "regional",
+          "source": "Bihar Land Records Manual (1/20 Kattha)",
+          "verified": true,
+          "description": "1 Dhur = 20 Dhurki = 68.0625 sq ft = 7.56 sq yd"
+        },
+        {
+          "id": "dhurki_bihar",
+          "variant": "standard",
+          "name": { "en": "Dhurki", "hi": "धूरकी", "pa": "ਧੂਰਕੀ" },
+          "symbol": "dhurki",
+          "sqft": 3.403125,
+          "category": "regional",
+          "source": "Bihar Survey Department (1/20 Dhur)",
+          "verified": true,
+          "description": "1 Dhurki = 3.403 sq ft"
+        },
+        {
+          "id": "decimal_bihar",
+          "variant": "standard",
+          "name": { "en": "Decimal / Dismil", "hi": "डिसमिल", "pa": "ਡਿਸਮਿਲ" },
+          "symbol": "decimal",
+          "sqft": 435.6,
+          "category": "regional",
+          "source": "Bihar Revenue Survey (1/100 Acre)",
+          "verified": true,
+          "description": "1 Decimal = 435.6 sq ft (1 Kattha ≈ 3.125 Decimal)"
+        },
+        {
+          "id": "bigha_laggi6",
+          "variant": "customary_laggi_6",
+          "name": { "en": "Bigha (Laggi 6ft)", "hi": "बीघा (लग्गी 6 फ़ुट)", "pa": "ਬੀਘਾ (ਲੱਗੀ 6 ਫੁੱਟ)" },
+          "symbol": "bigha (laggi 6)",
+          "sqft": 19044.0,
+          "category": "regional",
+          "source": "Regional Land Record Customs (Munger/Bhagalpur)",
+          "verified": false,
+          "description": "Unverified variant: 1 Bigha = 19,044 sq ft based on local 4-hath laggi"
+        }
+      ]
+    },
+    {
+      "id": "mp",
+      "name": {
+        "en": "Madhya Pradesh",
+        "hi": "मध्य प्रदेश",
+        "pa": "ਮੱਧ ਪ੍ਰਦੇਸ਼"
+      },
+      "defaultUnit": "bigha_mp",
+      "defaultVariant": "standard",
+      "variants": [
+        {
+          "id": "standard",
+          "name": {
+            "en": "Standard Pucca Bigha",
+            "hi": "मानक पक्का बीघा",
+            "pa": "ਮਿਆਰੀ ਪੱਕਾ ਬੀਘਾ"
+          },
+          "note": "Standard official MP Land Revenue Code (MP Bhulekh). 1 Bigha = 27,225 sq ft."
+        },
+        {
+          "id": "central_mp",
+          "name": {
+            "en": "Kachha / Regional Bigha (Western MP)",
+            "hi": "कच्चा / क्षेत्रीय बीघा (मालवा-निमाड़)",
+            "pa": "ਕੱਚਾ ਬੀਘਾ (ਮੱਧ ਪ੍ਰਦੇਸ਼)"
+          },
+          "note": "Customary unit in parts of Malwa/Indore: 1 Bigha = 12,000 sq ft (or 14,400 sq ft)."
+        }
+      ],
+      "units": [
+        {
+          "id": "bigha_mp",
+          "variant": "standard",
+          "name": { "en": "Bigha (Pucca)", "hi": "बीघा (पक्का)", "pa": "ਬੀਘਾ (ਪੱਕਾ)" },
+          "symbol": "bigha",
+          "sqft": 27225.0,
+          "category": "regional",
+          "source": "MP Land Revenue Code 1959 / MP Bhulekh",
+          "verified": true,
+          "description": "1 Bigha = 20 Biswa = 27,225 sq ft = 3,025 sq yd"
+        },
+        {
+          "id": "biswa_mp",
+          "variant": "standard",
+          "name": { "en": "Biswa", "hi": "बिस्वा", "pa": "ਬਿਸਵਾ" },
+          "symbol": "biswa",
+          "sqft": 1361.25,
+          "category": "regional",
+          "source": "MP Land Revenue Code 1959",
+          "verified": true,
+          "description": "1 Biswa = 1,361.25 sq ft = 151.25 sq yd"
+        },
+        {
+          "id": "bigha_malwa_mp",
+          "variant": "central_mp",
+          "name": { "en": "Bigha (Malwa/Kachha)", "hi": "बीघा (मालवा कच्चा)", "pa": "ਬੀਘਾ (ਕੱਚਾ)" },
+          "symbol": "bigha (kachha)",
+          "sqft": 12000.0,
+          "category": "regional",
+          "source": "Local Survey Custom (Indore/Ujjain Division)",
+          "verified": false,
+          "description": "Unverified variant: 1 Bigha = 12,000 sq ft (verify with patwari)"
+        }
+      ]
+    },
+    {
+      "id": "gujarat",
+      "name": {
+        "en": "Gujarat",
+        "hi": "गुजरात",
+        "pa": "ਗੁਜਰਾਤ"
+      },
+      "defaultUnit": "vigha_gujarat",
+      "defaultVariant": "standard",
+      "variants": [
+        {
+          "id": "standard",
+          "name": {
+            "en": "Official Revenue Vigha (16 Gunthas)",
+            "hi": "आधिकारिक राजस्व वीघा (16 गुंठा)",
+            "pa": "ਸਰਕਾਰੀ ਵੀਘਾ (16 ਗੁੰਠੇ)"
+          },
+          "note": "Standard across Gujarat Revenue Department (AnyRoR). 1 Vigha = 16 Guntha = 17,424 sq ft."
+        }
+      ],
+      "units": [
+        {
+          "id": "vigha_gujarat",
+          "variant": "standard",
+          "name": { "en": "Vigha / Bigha", "hi": "वीघा / बीघा", "pa": "ਵੀਘਾ / ਬੀਘਾ" },
+          "symbol": "vigha",
+          "sqft": 17424.0,
+          "category": "regional",
+          "source": "AnyRoR Gujarat Land Revenue Rules (16 Gunthas)",
+          "verified": true,
+          "description": "1 Vigha = 16 Guntha = 17,424 sq ft = 1,618.74 sq m = 0.40 Acre"
+        },
+        {
+          "id": "guntha_gujarat",
+          "variant": "standard",
+          "name": { "en": "Guntha", "hi": "गुंठा", "pa": "ਗੁੰਠਾ" },
+          "symbol": "guntha",
+          "sqft": 1089.0,
+          "category": "regional",
+          "source": "Gujarat Land Records Manual (121 sq yd)",
+          "verified": true,
+          "description": "1 Guntha = 121 sq yd = 33 ft × 33 ft = 1,089 sq ft"
+        },
+        {
+          "id": "vassa_gujarat",
+          "variant": "standard",
+          "name": { "en": "Vassa / Vasa", "hi": "वसा", "pa": "ਵਸਾ" },
+          "symbol": "vassa",
+          "sqft": 871.2,
+          "category": "regional",
+          "source": "Gujarat Revenue Manual (1/20 Vigha)",
+          "verified": true,
+          "description": "1 Vassa = 1/20 Vigha = 871.2 sq ft"
+        }
+      ]
+    },
+    {
+      "id": "maharashtra",
+      "name": {
+        "en": "Maharashtra",
+        "hi": "महाराष्ट्र",
+        "pa": "ਮਹਾਂਰਾਸ਼ਟਰ"
+      },
+      "defaultUnit": "guntha_mh",
+      "defaultVariant": "standard",
+      "variants": [
+        {
+          "id": "standard",
+          "name": {
+            "en": "Standard Guntha-Acre (Mahabhulekh)",
+            "hi": "मानक गुंठा-एकड़ (महाभूलेख)",
+            "pa": "ਮਿਆਰੀ ਗੁੰਠਾ-ਏਕੜ"
+          },
+          "note": "Official standard under Maharashtra Land Revenue Code 1966. 40 Guntha = 1 Acre."
+        }
+      ],
+      "units": [
+        {
+          "id": "guntha_mh",
+          "variant": "standard",
+          "name": { "en": "Guntha", "hi": "गुंठा", "pa": "ਗੁੰਠਾ" },
+          "symbol": "guntha",
+          "sqft": 1089.0,
+          "category": "regional",
+          "source": "Maharashtra Land Revenue Code 1966 / Mahabhulekh",
+          "verified": true,
+          "description": "1 Guntha = 121 sq yd = 33 ft × 33 ft = 1,089 sq ft = 101.17 sq m (40 Guntha = 1 Acre)"
+        },
+        {
+          "id": "aana_mh",
+          "variant": "standard",
+          "name": { "en": "Aana / Ana", "hi": "आना", "pa": "ਆਨਾ" },
+          "symbol": "aana",
+          "sqft": 2722.5,
+          "category": "regional",
+          "source": "Maharashtra Revenue Records (2.5 Guntha)",
+          "verified": true,
+          "description": "1 Aana = 2.5 Guntha = 2,722.5 sq ft (16 Aana = 1 Acre)"
+        },
+        {
+          "id": "bigha_mh",
+          "variant": "standard",
+          "name": { "en": "Bigha (Maharashtra Customary)", "hi": "बीघा (महाराष्ट्र प्रथागत)", "pa": "ਬੀਘਾ" },
+          "symbol": "bigha",
+          "sqft": 21780.0,
+          "category": "regional",
+          "source": "Western Maharashtra Historical Settlement (20 Guntha = 0.5 Acre)",
+          "verified": false,
+          "description": "Unverified historical custom: 1 Bigha = 20 Guntha = 21,780 sq ft"
+        }
+      ]
+    },
+    {
+      "id": "hp_uk",
+      "name": {
+        "en": "Himachal Pradesh & Uttarakhand",
+        "hi": "हिमाचल प्रदेश एवं उत्तराखंड",
+        "pa": "ਹਿਮਾਚਲ ਪ੍ਰਦੇਸ਼ ਅਤੇ ਉੱਤਰਾਖੰਡ"
+      },
+      "defaultUnit": "bigha_hill",
+      "defaultVariant": "standard",
+      "variants": [
+        {
+          "id": "standard",
+          "name": {
+            "en": "Hill Bigha (9,075 sq ft)",
+            "hi": "पहाड़ी बीघा (9,075 वर्ग फ़ुट)",
+            "pa": "ਪਹਾੜੀ ਬੀਘਾ (9,075 ਵਰਗ ਫੁੱਟ)"
+          },
+          "note": "Standard in Himbhoomi & Devbhoomi revenue records. 4.8 Bigha = 1 Acre."
+        }
+      ],
+      "units": [
+        {
+          "id": "bigha_hill",
+          "variant": "standard",
+          "name": { "en": "Hill Bigha", "hi": "पहाड़ी बीघा", "pa": "ਪਹਾੜੀ ਬੀਘਾ" },
+          "symbol": "bigha",
+          "sqft": 9075.0,
+          "category": "regional",
+          "source": "HP Land Records Manual (Himbhoomi) & UK Devbhoomi",
+          "verified": true,
+          "description": "1 Hill Bigha = 20 Biswa = 9,075 sq ft = 1,008.33 sq yd = 843.09 sq m"
+        },
+        {
+          "id": "biswa_hill",
+          "variant": "standard",
+          "name": { "en": "Biswa (Hill)", "hi": "बिस्वा (पहाड़ी)", "pa": "ਬਿਸਵਾ" },
+          "symbol": "biswa",
+          "sqft": 453.75,
+          "category": "regional",
+          "source": "HP Land Records Manual (1/20 Bigha)",
+          "verified": true,
+          "description": "1 Biswa = 453.75 sq ft = 50.42 sq yd"
+        },
+        {
+          "id": "biswansi_hill",
+          "variant": "standard",
+          "name": { "en": "Biswansi", "hi": "बिस्वांसी", "pa": "ਬਿਸਵਾਂਸੀ" },
+          "symbol": "biswansi",
+          "sqft": 22.6875,
+          "category": "regional",
+          "source": "HP Land Records Manual (1/20 Biswa)",
+          "verified": true,
+          "description": "1 Biswansi = 22.6875 sq ft"
+        }
+      ]
+    },
+    {
+      "id": "wb",
+      "name": {
+        "en": "West Bengal",
+        "hi": "पश्चिम बंगाल",
+        "pa": "ਪੱਛਮੀ ਬੰਗਾਲ"
+      },
+      "defaultUnit": "bigha_wb",
+      "defaultVariant": "standard",
+      "variants": [
+        {
+          "id": "standard",
+          "name": {
+            "en": "Standard Bigha (14,400 sq ft)",
+            "hi": "मानक बीघा (14,400 वर्ग फ़ुट)",
+            "pa": "ਮਿਆਰੀ ਬੀਘਾ (14,400 ਵਰਗ ਫੁੱਟ)"
+          },
+          "note": "Standard in Banglarbhumi land records. 1 Bigha = 20 Cottah = 1,600 sq yd."
+        }
+      ],
+      "units": [
+        {
+          "id": "bigha_wb",
+          "variant": "standard",
+          "name": { "en": "Bigha (Bengal)", "hi": "बीघा (बंगाल)", "pa": "ਬੀਘਾ" },
+          "symbol": "bigha",
+          "sqft": 14400.0,
+          "category": "regional",
+          "source": "WB Directorate of Land Records & Surveys (Banglarbhumi)",
+          "verified": true,
+          "description": "1 Bigha = 20 Cottah = 1,600 sq yd = 14,400 sq ft (0.3306 Acre)"
+        },
+        {
+          "id": "cottah_wb",
+          "variant": "standard",
+          "name": { "en": "Cottah / Katha", "hi": "कट्ठा", "pa": "ਕੱਠਾ" },
+          "symbol": "cottah",
+          "sqft": 720.0,
+          "category": "regional",
+          "source": "WB Land & Land Reforms Department (1/20 Bigha)",
+          "verified": true,
+          "description": "1 Cottah = 16 Chhatak = 720 sq ft = 80 sq yd"
+        },
+        {
+          "id": "chhatak_wb",
+          "variant": "standard",
+          "name": { "en": "Chhatak", "hi": "छटाक", "pa": "ਛਟਾਕ" },
+          "symbol": "chhatak",
+          "sqft": 45.0,
+          "category": "regional",
+          "source": "WB Land Records Manual (1/16 Cottah)",
+          "verified": true,
+          "description": "1 Chhatak = 45 sq ft = 5 sq yd = 20 Gandas"
+        },
+        {
+          "id": "satak_wb",
+          "variant": "standard",
+          "name": { "en": "Satak / Decimal", "hi": "शतक / डिसमिल", "pa": "ਸਤਕ / ਡਿਸਮਿਲ" },
+          "symbol": "satak",
+          "sqft": 435.6,
+          "category": "regional",
+          "source": "WB Land Records (1/100 Acre)",
+          "verified": true,
+          "description": "1 Satak = 435.6 sq ft = 1/100 Acre"
+        }
+      ]
+    },
+    {
+      "id": "south_india",
+      "name": {
+        "en": "South India (TN, KA, AP, TS, KL)",
+        "hi": "दक्षिण भारत (तमिलनाडु, कर्नाटक, आं.प्र., तेलं., केरल)",
+        "pa": "ਦੱਖਣੀ ਭਾਰਤ (ਤਾਮਿਲਨਾਡੂ, ਕਰਨਾਟਕਾ, ਏਪੀ, ਟੀਐਸ)"
+      },
+      "defaultUnit": "cent",
+      "defaultVariant": "standard",
+      "variants": [
+        {
+          "id": "standard",
+          "name": {
+            "en": "Cent / Ground / Guntha System",
+            "hi": "सेंट / ग्राउंड / गुंठा प्रणाली",
+            "pa": "ਸੈਂਟ / ਗ੍ਰਾਊਂਡ / ਗੁੰਠਾ ਪ੍ਰਣਾਲੀ"
+          },
+          "note": "Standard across Southern State Revenue & Registration departments."
+        }
+      ],
+      "units": [
+        {
+          "id": "cent",
+          "variant": "standard",
+          "name": { "en": "Cent", "hi": "सेंट", "pa": "ਸੈਂਟ" },
+          "symbol": "cent",
+          "sqft": 435.6,
+          "category": "regional",
+          "source": "Survey & Settlement Departments (TN, KL, AP, TS, KA)",
+          "verified": true,
+          "description": "1 Cent = 1/100 Acre = 435.6 sq ft = 48.4 sq yd = 40.468 sq m"
+        },
+        {
+          "id": "ground_tn",
+          "variant": "standard",
+          "name": { "en": "Ground (Tamil Nadu)", "hi": "ग्राउंड (तमिलनाडु)", "pa": "ਗ੍ਰਾਊਂਡ" },
+          "symbol": "ground",
+          "sqft": 2400.0,
+          "category": "regional",
+          "source": "Tamil Nadu Registration Department / Patta Chitta",
+          "verified": true,
+          "description": "1 Ground = 2,400 sq ft = 266.67 sq yd = 222.96 sq m (common for urban plots)"
+        },
+        {
+          "id": "guntha_south",
+          "variant": "standard",
+          "name": { "en": "Guntha (Karnataka / Telangana)", "hi": "गुंठा (कर्नाटक / तेलंगाना)", "pa": "ਗੁੰਠਾ" },
+          "symbol": "guntha",
+          "sqft": 1089.0,
+          "category": "regional",
+          "source": "Bhoomi Karnataka / Dharani Telangana (1/40 Acre)",
+          "verified": true,
+          "description": "1 Guntha = 1,089 sq ft = 121 sq yd = 101.17 sq m"
+        },
+        {
+          "id": "ankanam_ap",
+          "variant": "standard",
+          "name": { "en": "Ankanam (Andhra / Rayalaseema)", "hi": "अंकणम (आंध्र प्रदेश)", "pa": "ਅੰਕਣਮ" },
+          "symbol": "ankanam",
+          "sqft": 72.0,
+          "category": "regional",
+          "source": "AP Registration & Stamps Department (8 sq yd)",
+          "verified": true,
+          "description": "1 Ankanam = 72 sq ft = 8 sq yd = 6.69 sq m"
+        },
+        {
+          "id": "kuzhi_tn",
+          "variant": "standard",
+          "name": { "en": "Kuzhi (Tamil Nadu)", "hi": "कुझी (तमिलनाडु)", "pa": "ਕੁਝੀ" },
+          "symbol": "kuzhi",
+          "sqft": 144.0,
+          "category": "regional",
+          "source": "TN Traditional Revenue Records (16 sq yd)",
+          "verified": true,
+          "description": "1 Kuzhi = 144 sq ft = 16 sq yd (100 Kuzhi = 1 Ma = 14,400 sq ft)"
+        }
+      ]
+    }
+  ]
+}

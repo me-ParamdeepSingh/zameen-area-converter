@@ -1,0 +1,27 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# Keystores & sensitive signing keys
+*.jks
+*.keystore
+
+# Android build outputs
+android/.gradle/
+android/build/
+android/app/build/
+android/app/.cxx/
+android/local.properties
+android/captures/
+.gradle/
+build/
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+
+# Binaries
+*.apk
+*.aab

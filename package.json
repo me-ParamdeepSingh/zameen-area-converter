@@ -1,0 +1,40 @@
+{
+  "name": "zameen-area-converter",
+  "version": "1.0.0",
+  "description": "State-Aware Indian Land-Area Converter & Plot Calculator",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node test/conversion.test.js"
+  },
+  "keywords": [
+    "land",
+    "converter",
+    "zameen",
+    "bigha",
+    "kanal",
+    "marla",
+    "gaj",
+    "india"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/cli": "^8.5.3",
+    "@capacitor/ios": "^8.5.3",
+    "vite": "^6.2.0"
+  },
+  "dependencies": {
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/filesystem": "^8.1.4",
+    "@capacitor/haptics": "^8.0.2",
+    "@capacitor/share": "^8.0.3",
+    "@capacitor/splash-screen": "^8.0.2",
+    "@capacitor/status-bar": "^8.0.4",
+    "jspdf": "^4.2.1"
+  }
+}
